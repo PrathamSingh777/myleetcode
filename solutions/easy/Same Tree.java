@@ -5,21 +5,19 @@
 
 /**
 class Solution {
-    public boolean isSameTree(TreeNode p, TreeNode q) {
-        
-{
-if (p == null || q == null) {
-        if (p==null && q==null)
-    return true;
-}
-return isSameTree(p.left, q.left) &&
-    return false;
-}
 
-if (p.val != q.val) {
-    return false;
-}
+    public boolean isSymmetric(TreeNode root) {
 
+        if (root == null) {      // <-- corrected: handle null tree
+            return true;
+        }
 
-       isSameTree(p.right, q.right);
-}}
+        invertTree(root.left);
+
+        return isSameTree(root.left, root.right);
+    }
+
+    public TreeNode invertTree(TreeNode rooti) {
+
+        if (rooti == null) {
+            return null;
