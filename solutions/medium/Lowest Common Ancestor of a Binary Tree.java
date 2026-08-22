@@ -3,24 +3,23 @@
             // Language: Java
             // Link: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 
+        // Base case
+        if (root == null || root == p || root == q) {
+            return root;
         }
-
-        // Recurse into both subtrees (post-order: children resolve first)
+        // Search left subtree
         TreeNode left = lowestCommonAncestor(root.left, p, q);
+        // Search right subtree
         TreeNode right = lowestCommonAncestor(root.right, p, q);
-
-        // Case 1: found something on both sides -> current node is the split point -> LCA
+        // p and q found in different subtrees
         if (left != null && right != null) {
             return root;
         }
-
-        // Case 2: only one side found something -> pass it up unchanged
-
-        if(left != null){
+        // Return whichever subtree found p or q
+        if (left != null) {
             return left;
-        } 
-        
-    }
-            return root;
+        }
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+class Solution {
         return right;
-}
+    }
